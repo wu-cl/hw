@@ -1,5 +1,0 @@
-PWD o:/latex
-INPUT d:/Program Files/texlive/2018/texmf.cnf
-INPUT d:/Program Files/texlive/2018/texmf-dist/web2c/texmf.cnf
-INPUT d:/Program Files/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT o:/latex/main.tex
