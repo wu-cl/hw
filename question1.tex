@@ -1,0 +1,55 @@
+\section{Question 1}
+\subsection{Algorithm Description}
+
+$$OPT(i)=max
+	\begin{cases}
+		OPT(i-1)     & \text{}            \\
+		OPT(i-2)+V_i & \text{Select No.i}
+	\end{cases}$$
+
+\subsection{Pseudo-code}
+
+\begin{breakablealgorithm}
+	\caption{Money robbing case 1}
+	\begin{algorithmic}[1] %每行显示行号  
+		\Function {DP}{$Array,n$}
+		\State $dp[0]=Array[0]$
+		\State $dp[1]=max(Array[0],Array[1])$
+		\For {$\text{ i= 2 to n}$}
+		\State $dp[i]=max(dp[i-2]+Array[i],dp[i-1])$
+		\EndFor
+		\State \Return{$result$}
+		\EndFunction
+	\end{algorithmic}
+\end{breakablealgorithm}
+
+\begin{breakablealgorithm}
+	\caption{Money robbing case 2 (Loop)}
+	\begin{algorithmic}[1] %每行显示行号  
+		\Function {DP}{$Array,n$}
+		\State //Select No.1
+		\State $dp[0]=Array[0]$
+		\State $dp[1]=Array[0]$
+		\For {$\text{i = 2 to n}$}
+		\State $dp[i]=max(dp[i-2]+Array[i],dp[i-1])$
+		\EndFor
+		\State $MaxValue=dp[size-2]$
+		\newpage
+		\State //Do not select No.1
+		\State $dp[0]=0$
+		\State $dp[1]=Array[1]$
+		\For {$\text{i = 2 to n}$}
+		\State $dp[i]=max(dp[i-2]+Array[i],dp[i-1])$
+		\EndFor
+		\State $MaxValue=max(MaxValue,dp[size-1])$
+		\State \Return{$result$}
+		\EndFunction
+	\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Complexity}
+case 1:
+$$O(n)$$
+\par
+case 2:
+$$O(n)$$

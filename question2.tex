@@ -1,0 +1,31 @@
+\section{Question 2}
+\subsection{Algorithm Description}
+Use DFS search the tree\par
+i-the present node\par
+k-the pre node\par
+[0]-do not select the node\par
+[1]-select the node\par
+$$OPT[i][0]=OPT[i][0]+max(OPT[k][0],OPT[k][1])$$
+$$OPT[i][1]=OPT[i][1]+OPT[k][0]$$
+\subsection{Pseudo-code}
+
+\begin{breakablealgorithm}
+	\caption{Node selection}
+	\begin{algorithmic}[1] %每行显示行号  
+		\Function {DFS}{$x,pre$}
+		\For {$\text{node linked to x except pre}$}
+		\State $DFS(t,x)$
+		\State $dp[x][0]+=max(dp[t][1],dp[t][0])$
+		\State $dp[x][1]+=dp[t][0]$
+		\EndFor
+		\State \Return{$0$}
+		\EndFunction
+		\Function {DP}{}
+		\State $DFS(1,0)$
+		\State \Return{$max(dp[1][0],dp[1][1])$}
+		\EndFunction
+	\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Complexity}
+$$O(n)$$
